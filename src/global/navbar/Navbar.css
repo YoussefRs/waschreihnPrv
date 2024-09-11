@@ -1,0 +1,254 @@
+.nav {
+  width: 100%;
+  height: 120px;
+  position: fixed;
+  text-align: center;
+  z-index: 1000;
+  /* padding: 0 10rem; */
+}
+
+.logo_ctr {
+  height: 100%;
+  width: fit-content;
+  position: absolute;
+  padding: 0 0 0 10rem;
+  z-index: 10000;
+  transition: transform 0.3s ease;
+}
+.logo_ctr img {
+  height: 160px;
+}
+.first_nav {
+  height: 62%;
+  background-color: #fff;
+  padding: 0 0 0 10rem;
+  position: relative;
+  overflow: hidden; /* To hide overflow content during the transition */
+  transition: height 0.2s ease; /* Smooth transition */
+}
+
+.first_nav.expanded {
+  height: 400px; /* Expanded height */
+}
+.logo_ctr.expanded {
+  transform: translateY(400px); 
+}
+
+.first_nav_inner {
+  height: 100%;
+  padding: 0 15rem;
+ 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.first_inner_div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+.first_inner_div svg {
+  width: 40px;
+  height: 40px;
+}
+.inner_div_address {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.inner_div_address p {
+    font-size: 12px;
+    font-weight: 600;
+}
+.inner_div_address span {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.second_nav {
+  height: 38%;
+  padding: 0 10rem 0 14rem;
+}
+
+.second_nav_inner {
+  height: 100%;
+  background-color: #77b1ff;
+  border-radius: 50px;
+  width: 0%; /* Initial width is 0% */
+  animation: expandWidth 1s ease-in-out forwards; /* Animation with keyframes */
+  
+}
+.second_nav_inner ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.second_nav_inner ul li {
+  color: #fff;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  animation: reverseFadeOut 2s ease-in-out forwards;
+}
+.second_nav_inner ul li button{
+  background-color: #1746CB;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  outline: none;
+  border: none;
+}
+.selection_icon {
+  position: absolute;
+  top: 85%;
+  padding-left: 12px;
+}
+.active {
+  background-color: rgba(23, 70, 203, 0.47);
+  height: 100%;
+
+}
+
+.mobile_nav_ctr {
+  position: fixed;
+  right: 8%;
+  top: 1.5%;
+  opacity: 0;
+}
+
+.nav_items {
+  display: none;
+}
+
+@media (max-width : 1420px) {
+  .first_nav_inner {
+    padding: 0 10rem;
+    transition: padding 0.5s ease-in-out;
+  }
+}
+
+@media (max-width : 1200px) {
+  .second_nav_inner {
+    padding: 0 0 0 5rem !important;
+    transition: padding 0.5s ease-in-out;
+  }
+}
+
+@media (max-width: 1200px) {
+  .nav {
+    padding: 0;
+    
+  }
+  .logo_ctr {
+    padding: 0;
+  }
+  .second_nav {
+    padding: 0 6rem;
+  }
+  .first_nav_inner {
+    padding: 0 6rem 0 0;
+    
+  }
+
+
+  .inner_div_address p {
+    font-size: 10px;
+    font-weight: 600;
+}
+.inner_div_address span {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+}
+
+
+@media (max-width : 900px) {
+  .second_nav_inner {
+    width: 100%; /* Initial width is 0% */
+    animation: shrinkWidth 1s ease-in-out forwards; /* Animation with keyframes */
+    padding-left: 0 !important;
+  }
+  .second_nav_inner ul {
+    opacity: 1;
+    animation: fadeOut 0.2s ease-in-out forwards;
+  }
+
+  .first_nav {
+    padding: 0 6rem;
+  }
+
+  .first_nav_inner {
+    padding: 0;
+  }
+
+  .first_inner_div {
+    opacity: 0;
+    display: none;
+    
+  }
+  .mobile_nav_ctr {
+    opacity: 0;
+    animation: reverseFadeOut 0.6s ease-in-out forwards;
+  }
+  .nav_items {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    list-style: none;
+    gap: 2rem;
+  }
+  .nav_items li span {
+    text-align: none;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 20px;
+    animation: reverseFadeOut 0.6s ease-in-out forwards;
+  }
+}
+
+
+
+@keyframes expandWidth {
+  from {
+    width: 0%; 
+  }
+  to {
+    width: 100%; 
+    padding-left: 10rem;
+  }
+}
+
+@keyframes shrinkWidth {
+  from {
+    width: 100%; 
+  }
+  to {
+    width: 0%; 
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes reverseFadeOut {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
